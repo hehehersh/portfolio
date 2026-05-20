@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshwardhan Patil — Builder · Marketer · AI Product</title>
+<meta name="description" content="Harshwardhan Patil — 7 years in marketing, now building AI products. Brand strategist, performance marketer, and no-code AI app builder based in Pune.">
+<meta property="og:title" content="Harshwardhan Patil — Builder · Marketer · AI Product">
+<meta property="og:description" content="7 years in marketing, now building AI products.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0a0a0b;
+  --bg2:      #111113;
+  --bg3:      #18181b;
+  --border:   #222226;
+  --border2:  #333338;
+  --text:     #f0ede6;
+  --text2:    #a09d96;
+  --text3:    #52504c;
+  --cream:    #e8e2d5;
+  --gold:     #c9a84c;
+  --gold2:    #a8873a;
+  --gold-lt:  rgba(201,168,76,0.1);
+  --red-acc:  #c45c3a;
+  --w: min(1200px, 90vw);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.15s ease, width 0.3s, height 0.3s, opacity 0.3s;
+}
+body:hover .cursor { opacity: 1; }
+
+/* ── GRAIN ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.5;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10,10,11,0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo em { font-style: normal; color: var(--gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text3);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--bg);
+  background: var(--gold);
+  padding: 8px 18px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--gold2); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 5vw 8vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 20% 80%, rgba(196,92,58,0.03) 0%, transparent 50%);
+}
+
+.hero-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  opacity: 0.4;
+}
+
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--text2);
+}
+
+.hero-descriptor {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+.hero-descriptor p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text2);
+  max-width: 380px;
+  line-height: 1.7;
+}
+.hero-divider {
+  width: 60px; height: 1px;
+  background: var(--border2);
+  flex-shrink: 0;
+}
+
+.hero-scroll {
+  position: absolute;
+  right: 5vw;
+  bottom: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1s forwards;
+}
+.hero-scroll span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--border2), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(0.6); }
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  background: var(--bg2);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.marquee-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTION BASE ── */
+section { padding: 120px 5vw; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 60px;
+}
+.section-title em { font-style: italic; color: var(--text2); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: var(--w);
+  margin: 0 auto;
+}
+.about-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  color: var(--text2);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.about-text p strong { color: var(--cream); font-weight: 400; }
+.about-text p em { font-style: italic; color: var(--gold); }
+
+.about-right { display: flex; flex-direction: column; gap: 32px; }
+
+.stats-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.stat-item {
+  background: var(--bg2);
+  padding: 28px 24px;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num em { font-style: normal; color: var(--gold); font-size: 2rem; }
+.stat-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.skills-list { display: flex; flex-direction: column; gap: 0; }
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.skill-row:last-child { border-bottom: none; }
+.skill-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.skill-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.skill-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text3);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* ── SERVICES ── */
+.services { background: var(--bg2); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  max-width: var(--w);
+  margin: 0 auto;
+}
+.service-card {
+  background: var(--bg2);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.service-card:hover { background: var(--bg3); }
+.service-card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: 24px; right: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 300;
+  color: var(--border2);
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+.service-card:hover::before { color: var(--border); }
+.service-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.service-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text2);
+  font-weight: 300;
+}
+.service-items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.service-item::before {
+  content: '→';
+  color: var(--gold);
+  font-size: 0.65rem;
+}
+
+/* ── PRODUCTS ── */
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: var(--w);
+  margin: 0 auto;
+}
+.product-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 48px 48px;
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 48px;
+  align-items: start;
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  transition: height 0.4s ease;
+}
+.product-card:hover::before { height: 100%; }
+.product-card:hover { border-color: var(--border2); background: var(--bg3); }
+
+.product-meta { display: flex; flex-direction: column; gap: 8px; }
+.product-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--border2);
+  line-height: 1;
+}
+.product-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.product-status {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+.status-live { background: rgba(61,186,122,0.1); color: #3dba7a; border: 1px solid rgba(61,186,122,0.2); }
+.status-beta { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+.status-v1 { background: rgba(91,156,246,0.1); color: #5b9cf6; border: 1px solid rgba(91,156,246,0.2); }
+
+.product-body { }
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.product-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text2);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.product-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.feature-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text3);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.product-links { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; justify-content: flex-start; }
+.product-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text2);
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  padding: 8px 16px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.product-link:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-lt); }
+.product-link.primary { border-color: var(--gold); color: var(--gold); background: var(--gold-lt); }
+.product-link.primary:hover { background: var(--gold); color: var(--bg); }
+
+/* ── EXPERIENCE ── */
+.experience { background: var(--bg2); }
+.timeline {
+  max-width: var(--w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 180px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 5%, var(--border) 95%, transparent);
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 180px;
+  top: 48px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  transform: translateX(-50%);
+}
+.timeline-item.current::before { background: var(--gold); border-color: var(--gold); }
+
+.timeline-date {
+  padding-top: 4px;
+  text-align: right;
+  padding-right: 32px;
+}
+.timeline-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+.timeline-current-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  background: var(--gold-lt);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+
+.timeline-content { padding-left: 24px; }
+.timeline-role {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.timeline-company {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+.timeline-bullets { display: flex; flex-direction: column; gap: 8px; }
+.timeline-bullet {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text2);
+  font-weight: 300;
+  display: flex;
+  gap: 12px;
+}
+.timeline-bullet::before {
+  content: '—';
+  color: var(--text3);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── CONTACT ── */
+.contact {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
+}
+.contact-inner { position: relative; z-index: 1; }
+.contact-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.contact-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.contact-heading em { font-style: italic; color: var(--text2); }
+.contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.contact-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text2);
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  padding: 12px 28px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--gold); color: var(--gold); }
+.contact-link.primary {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+  font-weight: 500;
+}
+.contact-link.primary:hover { background: var(--gold2); border-color: var(--gold2); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 28px 5vw;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+}
+.footer-built {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text3);
+}
+.footer-built em { font-style: normal; color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav .nav-links { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .product-card { grid-template-columns: 1fr; gap: 24px; }
+  .product-links { flex-direction: row; align-items: flex-start; }
+  .timeline::before { left: 0; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .timeline-item::before { left: 0; top: 8px; }
+  .timeline-date { text-align: left; padding-right: 0; }
+  .timeline-content { padding-left: 16px; }
+  .hero-name { font-size: clamp(3rem, 12vw, 5rem); }
+  section { padding: 80px 5vw; }
+  .services-grid { grid-template-columns: 1fr; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">H<em>.</em>Patil</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">What I do</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:harshwardhan224@gmail.com" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-tag">Pune, India · Available for remote roles</div>
+
+  <h1 class="hero-name">
+    Harshwardhan<br>
+    <em>Patil</em>
+  </h1>
+
+  <div class="hero-descriptor">
+    <div class="hero-divider"></div>
+    <p>7 years building brands. Now building AI products.<br>
+    Marketer who ships. Builder who understands users.</p>
+  </div>
+
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- First set -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Brand Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>AI Product Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Performance Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Marketing Automation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>No-Code / Vibe Coding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Product Management</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Growth Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>UI / UX Thinking</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Brand Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>AI Product Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Performance Marketing</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Marketing Automation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>No-Code / Vibe Coding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Product Management</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Growth Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>UI / UX Thinking</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-label">About</div>
+      <p>I'm a marketer who got tired of just talking about products — so I started <strong>building them.</strong></p>
+      <p>7 years across brand strategy, performance marketing, and content operations gave me an unusually complete view of how products reach people. Now I use <em>AI as a development layer</em> to ship functional products without a traditional engineering background.</p>
+      <p>I built a <strong>news app</strong> with ML-based sentiment filtering, a <strong>real-time market intelligence tool</strong> used at TRA Research, and a <strong>job tracking dashboard</strong> — all solo, all working.</p>
+      <p>Currently at <strong>TRA Research</strong> as Branding Manager. Looking for an AI PM or growth-focused product role where the output is measurable and the problem is real.</p>
+    </div>
+
+    <div class="about-right reveal">
+      <div class="stats-block">
+        <div class="stat-item">
+          <div class="stat-num">7<em>+</em></div>
+          <div class="stat-desc">Years of marketing & brand experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-desc">AI products built & shipped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15<em>+</em></div>
+          <div class="stat-desc">Clients managed across industries</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0</div>
+          <div class="stat-desc">Lines of traditional code written</div>
+        </div>
+      </div>
+
+      <div class="skills-list">
+        <div class="skill-row">
+          <span class="skill-name">AI / Building</span>
+          <div class="skill-tags">
+            <span class="skill-tag">LLM workflows</span>
+            <span class="skill-tag">Vibe coding</span>
+            <span class="skill-tag">Prompt engineering</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Marketing</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Performance</span>
+            <span class="skill-tag">Brand strategy</span>
+            <span class="skill-tag">LinkedIn Ads</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Automation</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Zapier</span>
+            <span class="skill-tag">Zoho</span>
+            <span class="skill-tag">Martech ops</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Product</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Roadmaps</span>
+            <span class="skill-tag">User research</span>
+            <span class="skill-tag">PM cert 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div style="max-width:var(--w);margin:0 auto">
+    <div class="section-label reveal">What I do</div>
+    <h2 class="section-title reveal">Four things I do <em>exceptionally well</em></h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card" data-num="01">
+      <div class="service-title">Brand Strategy & Positioning</div>
+      <div class="service-desc">Building brands that aren't just seen — but chosen. From messaging architecture to market differentiation.</div>
+      <div class="service-items">
+        <span class="service-item">Brand positioning frameworks & guidelines</span>
+        <span class="service-item">Competitive & audience research</span>
+        <span class="service-item">Revenue-aligned brand objectives</span>
+      </div>
+    </div>
+    <div class="service-card" data-num="02">
+      <div class="service-title">Growth & Performance Marketing</div>
+      <div class="service-desc">Data-driven campaigns across LinkedIn, Meta, and Google — optimised for real KPIs, not vanity metrics.</div>
+      <div class="service-items">
+        <span class="service-item">Paid campaigns at &lt;₹60 CPM</span>
+        <span class="service-item">ROAS optimisation & attribution</span>
+        <span class="service-item">Marketing automation (Zapier, Zoho)</span>
+      </div>
+    </div>
+    <div class="service-card" data-num="03">
+      <div class="service-title">AI Product Management</div>
+      <div class="service-desc">Translating user problems into working products using AI as the development layer. No engineers needed.</div>
+      <div class="service-items">
+        <span class="service-item">Product scoping & roadmap definition</span>
+        <span class="service-item">LLM-powered feature development</span>
+        <span class="service-item">0→1 product builds, solo ownership</span>
+      </div>
+    </div>
+    <div class="service-card" data-num="04">
+      <div class="service-title">Content & Brand Communication</div>
+      <div class="service-desc">Full-stack content operations — from strategy to scripts, social to PR — for brands that have something to say.</div>
+      <div class="service-items">
+        <span class="service-item">Content ecosystems & social strategy</span>
+        <span class="service-item">Video direction & scriptwriting</span>
+        <span class="service-item">PR writing for 15+ clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div style="max-width:var(--w);margin:0 auto;margin-bottom:0">
+    <div class="section-label reveal">Products</div>
+    <h2 class="section-title reveal">Things I <em>actually built</em></h2>
+  </div>
+  <div class="products-list">
+
+    <div class="product-card reveal">
+      <div class="product-meta">
+        <div class="product-num">01</div>
+        <div class="product-type">News App</div>
+        <span class="product-status status-beta">Android Beta</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">News That Matters</div>
+        <div class="product-desc">An AI-powered news app that filters what you read — not just by topic, but by emotional weight. Built entirely solo, from concept to APK.</div>
+        <div class="product-features">
+          <span class="feature-pill">Calm Mode — hides negative news</span>
+          <span class="feature-pill">Keyword-based threads</span>
+          <span class="feature-pill">Source diversity indicator</span>
+          <span class="feature-pill">Auto thread-population</span>
+        </div>
+      </div>
+      <div class="product-links">
+        <a href="#" class="product-link primary" id="ntm-link">↓ Download APK</a>
+        <a href="#contact" class="product-link">Request demo</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-meta">
+        <div class="product-num">02</div>
+        <div class="product-type">Web Tool</div>
+        <span class="product-status status-live">Live</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Buying Intent Index</div>
+        <div class="product-desc">A market intelligence tool quantifying Indian consumer buying intent monthly — converting TRA Research's proprietary data into an interactive, publicly accessible product.</div>
+        <div class="product-features">
+          <span class="feature-pill">Monthly intent scoring</span>
+          <span class="feature-pill">Sector-wise breakdown</span>
+          <span class="feature-pill">Interactive data viz</span>
+          <span class="feature-pill">Research-to-product conversion</span>
+        </div>
+      </div>
+      <div class="product-links">
+        <a href="https://www.buyingintent.in" target="_blank" class="product-link primary">Visit site ↗</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-meta">
+        <div class="product-num">03</div>
+        <div class="product-type">Web App</div>
+        <span class="product-status status-v1">v1 Live</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">JobTrack</div>
+        <div class="product-desc">A personal job search dashboard I built while actively job hunting. Tracks applications, status, notes, and salary data — with CSV export and keyboard shortcuts.</div>
+        <div class="product-features">
+          <span class="feature-pill">Status pipeline tracking</span>
+          <span class="feature-pill">Search & filter</span>
+          <span class="feature-pill">Application stats</span>
+          <span class="feature-pill">CSV export</span>
+          <span class="feature-pill">⌘K shortcut</span>
+        </div>
+      </div>
+      <div class="product-links">
+        <a href="jobtrack.html" target="_blank" class="product-link primary">Open app ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div style="max-width:var(--w);margin:0 auto">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="section-title reveal">7 years of <em>getting things done</em></h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item current reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">Jul 2025<br>— Present</div>
+          <div class="timeline-current-tag">Current</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Branding Manager</div>
+          <div class="timeline-company">TRA Research (Comniscient Group) · Mumbai, Hybrid</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">Led digital brand presence for India's most-cited brand trust research — TRA's Most Trusted Brands and Most Desired Brands reports, with clients including Amazon, Dell, PhonePe, LG, Xiaomi, and NDTV.</div>
+            <div class="timeline-bullet">Drove LinkedIn Ads campaigns achieving under ₹60 CPM; owned targeting strategy, creative direction, and performance analysis end-to-end.</div>
+            <div class="timeline-bullet">Introduced marketing automation into company operations using Zapier and Zoho, reducing manual campaign workflow and directly supporting the sales team's pipeline.</div>
+            <div class="timeline-bullet">Contributed significantly to the development and launch of the Buying Intent Index, a data product that converts proprietary research into a publicly accessible web tool.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">Aug 2024<br>— Jun 2025</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Brand Manager</div>
+          <div class="timeline-company">Radon Media · Pune, On-site</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">Built the agency's social media practice from scratch — hired the team, developed the sales pitch, closed the first clients, and managed end-to-end delivery for in-house brands and client accounts.</div>
+            <div class="timeline-bullet">Led full-cycle brand campaigns: guidelines, copy direction, design approval, shoot direction, short-form video editing, and social profile management across multiple industries.</div>
+            <div class="timeline-bullet">Managed cross-functional creative team across copywriting, design, and videography for simultaneous campaign delivery.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">May 2023<br>— Aug 2024</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Digital Operations Executive</div>
+          <div class="timeline-company">TRA Research (Comniscient Group) · Mumbai, Hybrid</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">Project manager for TRA's Marketing Decision Index, a proprietary quarterly report launched in 2023 — owned scoping, delivery, and stakeholder coordination.</div>
+            <div class="timeline-bullet">Social media lead for TRA's flagship brand trust products; managed content, scheduling, and engagement for an audience that included senior marketing professionals at India's top brands.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">Oct 2022<br>— Mar 2024</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Executive Content Writer</div>
+          <div class="timeline-company">Blue Lotus Communications (Comniscient Group) · Mumbai, Hybrid</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">Primary PR writer for 15+ clients across fashion, IT/ITES, manufacturing, and food sectors — NIC Ice Creams, Madame Fashion, Garware Industries, Cremica Foods, and others.</div>
+            <div class="timeline-bullet">Covered Social Media Manager responsibilities throughout tenure; drove over 2000% growth in impressions compared to the prior year.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">Feb 2022<br>— Jun 2022</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Senior Content Writer</div>
+          <div class="timeline-company">Globuzz Media · Pune, On-site</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">Led end-to-end project delivery for 40+ clients across 150+ projects in 5 months, managing cross-functional teams across copywriting, design, and videography in real estate, automobile, BFSI, fashion, and food sectors.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <div class="timeline-period">Dec 2018<br>— Dec 2020</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-role">Content Strategist & Team Lead</div>
+          <div class="timeline-company">Step Up Digitally · Aurangabad, On-site</div>
+          <div class="timeline-bullets">
+            <div class="timeline-bullet">One of the founding team members at this startup — drafted the firm's first sales pitch, acted as Key Account Manager for multiple clients, and trained freshers in design and video production.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner reveal">
+    <div class="contact-eyebrow">Let's work together</div>
+    <h2 class="contact-heading">
+      Start a<br><em>conversation</em>
+    </h2>
+    <div class="contact-links">
+      <a href="mailto:harshwardhan224@gmail.com" class="contact-link primary">harshwardhan224@gmail.com</a>
+      <a href="tel:+919920185258" class="contact-link">+91 99201 85258</a>
+      <a href="https://linkedin.com/in/harshwardhan-patil-08a6a4170" target="_blank" class="contact-link">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">HARSHWARDHAN PATIL · 2026</div>
+  <div class="footer-built">Built with <em>AI</em> · Deployed on Vercel</div>
+</footer>
+
+<script>
+// ── CURSOR ──────────────────────────────────────────────────────────────────
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .product-card, .service-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '16px';
+    cursor.style.height = '16px';
+    ring.style.width = '56px';
+    ring.style.height = '56px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '8px';
+    cursor.style.height = '8px';
+    ring.style.width = '36px';
+    ring.style.height = '36px';
+  });
+});
+
+// ── SCROLL REVEAL ────────────────────────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  observer.observe(el);
+});
+
+// ── NAV ACTIVE ───────────────────────────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.style.color = '');
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.style.color = 'var(--gold)';
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => navObserver.observe(s));
+
+// ── NTM LINK PLACEHOLDER ─────────────────────────────────────────────────────
+// Update this href once you have the Drive link
+document.getElementById('ntm-link').addEventListener('click', e => {
+  e.preventDefault();
+  alert('APK link coming soon — reach out directly at harshwardhan224@gmail.com');
+});
+</script>
+</body>
+</html>
